@@ -4,7 +4,7 @@
 
 //Assign the pins and variable
 const int gasPin1 = A5;
-const int heaterPin1 = 12;
+const int heaterPin1 = 9;
 const int BuffTime = 10; 
 int gasVal1 = 0;
 int count = 0;
@@ -72,12 +72,13 @@ void loop()
   slcd.print("Current: ");
   slcd.setCursor(10,1);
   slcd.print(valarray[count],DEC); // Prints the gasVal2 value on the LCD
-  uplimit = 100 + valarray[count];
-  delay(50); 
+  uplimit = 50 + avg;
+  //delay(500); 
     if (valarray[count] > uplimit){
-      slcd.setCursor(0, 1);
-      slcd.print("***OVER LIMIT***");
+      slcd.setCursor(13, 1);
+      slcd.print("***");
     }
+   delay(500);
   count++;
   //if we're at the end of the array...
     if (count >= 10){              
